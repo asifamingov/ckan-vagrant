@@ -17,9 +17,18 @@ gulp.task('commit', function(){
     });
 });
 
+
+// Tag the repo with a version
+gulp.task('tag', function(){
+    git.tag('v1.1.1', 'Version message', function (err) {
+        if (err) throw err;
+    });
+});
+
+
 // Tag the repo with a version
 gulp.task('push', function(){
-    git.push('origin', {args: ' --tags'}, function (err) {
+    git.push('origin', 'master', function (err) {
         if (err) throw err;
     });
 });
